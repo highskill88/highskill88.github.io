@@ -70,18 +70,44 @@ body {
   width: 100%;
   height: 100vh; }
 
+#dlg_login {
+  width: 608px;
+  margin: 100px auto;
+  text-align: center;
+  background-color: #dad5cb;
+  border: 1px solid grey;
+  box-shadow: 3px 3px 0px #dad5cb;
+  color: white; }
+  #dlg_login section {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 20px; }
+  #dlg_login ul {
+    height: 223px; }
+  #dlg_login li {
+    float: left;
+    width: 118px;
+    padding: 7px;
+    background-color: #676767;
+    border: 2px solid #afafaf;
+    margin: 3px;
+    cursor: pointer; }
+    #dlg_login li img {
+      width: 119px;
+      height: 172px; }
+  #dlg_login li.active {
+    border: 2px solid #44abda; }
+
 #btn_join {
-  position: absolute;
-  top: 30px;
-  left: 50px;
   background-color: #2fa1d6;
-  padding: 10px 20px;
+  padding: 10px 36px;
   color: white;
-  border-radius: 8px; }
+  border-radius: 8px;
+  margin-top: 20px; }
 
 #publisher {
-  width: 150px;
-  height: 150px;
+  width: 128px;
+  height: 128px;
   bottom: 0px;
   position: absolute;
   margin: 0 auto; }
