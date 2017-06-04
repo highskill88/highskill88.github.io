@@ -65,6 +65,12 @@ img {
 body {
   overflow: hidden; }
 
+button {
+  background-color: #2fa1d6;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 36px; }
+
 .main {
   position: relative;
   width: 100%;
@@ -98,19 +104,68 @@ body {
   #dlg_login li.active {
     border: 2px solid #44abda; }
 
+#dlg_setting {
+  display: none;
+  position: absolute;
+  margin: 30px auto;
+  top: 200px;
+  background-color: #eee;
+  border: 1px solid #999;
+  box-shadow: 3px 3px 5px 0px grey;
+  width: 450px;
+  left: 50%;
+  transform: translateX(-50%); }
+  #dlg_setting h4 {
+    padding-bottom: 15px; }
+  #dlg_setting .tab_section {
+    padding: 20px 25px; }
+  #dlg_setting .height_50 {
+    height: 50px; }
+  #dlg_setting section {
+    padding: 6px 55px; }
+  #dlg_setting #btn_OK {
+    float: right;
+    margin-right: 20px; }
+
 #btn_join {
-  background-color: #2fa1d6;
   padding: 10px 36px;
-  color: white;
-  border-radius: 8px;
   margin-top: 20px; }
 
+#myVideo {
+  width: 100px;
+  height: 36px;
+  margin-top: -25px; }
+
 #publisher {
-  width: 128px;
-  height: 128px;
-  bottom: 0px;
+  width: 86px;
+  height: 86px; }
+
+#toolbar {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 670px;
+  bottom: 20px;
+  background-color: rgba(64, 64, 64, 0.58); }
+  #toolbar li {
+    float: left;
+    padding: 30px;
+    cursor: pointer; }
+
+#dlg_share_link {
+  display: none;
   position: absolute;
-  margin: 0 auto; }
+  bottom: 134px;
+  background-color: #eee;
+  border: 1px solid #999;
+  box-shadow: 3px 3px 5px 0px grey;
+  left: calc(50% - 400px); }
+  #dlg_share_link section {
+    padding: 20px; }
+  #dlg_share_link p {
+    padding: 10px 20px; }
+  #dlg_share_link input {
+    margin: 14px 0px; }
 
 #loading {
   position: absolute;
