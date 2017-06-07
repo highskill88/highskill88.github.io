@@ -7,6 +7,31 @@
 	<link rel="stylesheet" type="text/css" href="./assets/css/app.css">
 </head>
 <body>
+ <!-- All your stuff -->
+
+	<script type="text/javascript">
+		// <%= %> will be replaced by values from server side.
+		// You can use this init object inside your JS app for initialization
+		window.initMeet = {
+			// roomName: <%= roomname %>,
+			// name: <%= avatar_name %>,
+			// characterIndex: <%= characterIndex %>,
+			// opentok: {
+			// 	apiKey: <%= tokbox_apikey %>,
+			// 	secreateKey: <%= tokbox_seckey %>,
+			// 	tokenID: <%= tokbox_token %>,
+			// },
+			roomName: 'ppp',
+			name: 'user',
+			characterIndex: 0,
+			opentok: {
+				apiKey: '45874472',
+				secreateKey: 'ad37fad87706a28b0bb68223e7c492cd7c0779e1',
+				tokenID: 'T1==cGFydG5lcl9pZD00NTg3NDQ3MiZzaWc9MmFhYzgxZGY3ZjYxODU1OGQxZTU1ZWEzMmUzZDA2NTNlNjJiM2NhODpzZXNzaW9uX2lkPTFfTVg0ME5UZzNORFEzTW41LU1UUTVOVFkyTWpZNE5UYzBNSDVOVW5kT04xUXhlV05uTDFaVmRqVTRhWE5ZTW5RM2IwMS1mZyZjcmVhdGVfdGltZT0xNDk1NjYzMDExJm5vbmNlPTAuNzg2ODg3NzMzMjU4NDA4MyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDk4MjU1MDEy',
+			},
+		}
+	</script>
+
 	<section id="appContainer" class="main">
 		<div id="loading_bar" style=""></div>
 		<div id="toolbar">
