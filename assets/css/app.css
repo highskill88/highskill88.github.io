@@ -149,7 +149,7 @@ button {
   background-color: rgba(64, 64, 64, 0.58); }
   #toolbar li {
     float: left;
-    padding: 30px;
+    padding: 24px;
     cursor: pointer; }
 
 #dlg_share_link {

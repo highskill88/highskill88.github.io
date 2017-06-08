@@ -27,15 +27,16 @@
 			opentok: {
 				apiKey: '45874472',
 				secreateKey: 'ad37fad87706a28b0bb68223e7c492cd7c0779e1',
+				sessionID : '1_MX40NTg3NDQ3Mn5-MTQ5NTY2MjY4NTc0MH5NUndON1QxeWNnL1ZVdjU4aXNYMnQ3b01-fg',
 				tokenID: 'T1==cGFydG5lcl9pZD00NTg3NDQ3MiZzaWc9MmFhYzgxZGY3ZjYxODU1OGQxZTU1ZWEzMmUzZDA2NTNlNjJiM2NhODpzZXNzaW9uX2lkPTFfTVg0ME5UZzNORFEzTW41LU1UUTVOVFkyTWpZNE5UYzBNSDVOVW5kT04xUXhlV05uTDFaVmRqVTRhWE5ZTW5RM2IwMS1mZyZjcmVhdGVfdGltZT0xNDk1NjYzMDExJm5vbmNlPTAuNzg2ODg3NzMzMjU4NDA4MyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDk4MjU1MDEy',
-				screenExtensionID: 'kopdlgjcddailpmdecfokgaedimmffoi',
+				screenExtensionID: 'fpkmelcdofeiaphpgkieekcjfkhaefhd',
 			},
 		}
 	</script>
 
 	<section id="appContainer" class="main">
 		<div id="loading_bar" style=""></div>
-		<div id="toolbar">
+		<div id="toolbar" style="display:none">
 			<ul>
 				<li id="btn_share"><img src="assets/images/share.png"></li>
 				<li id="btn_chatting"><img src="assets/images/chatting.png"></li>
@@ -47,6 +48,7 @@
 				</li>
 				<li id="btn_audio"><img src="assets/images/mic.png"></li>
 				<li id="btn_video"><img src="assets/images/camera.png"></li>
+				<li id="btn_screenshare"><img src="assets/images/screen.png"></li>
 				<li id="btn_exit"><img src="assets/images/exit.png"></li>
 			</ul>
 		</div>
@@ -54,7 +56,7 @@
 
   	<!-- <button id="btn_test" style="position:absolute;top:10px">Test</button> -->
 	<div id="dlg_login">
-  		<section id="room">
+  		<section id="room" style="display:none";>
   			<label>Room Name</label>
   			<input type="text" name="" id="text_room_name">
   		</section>
@@ -63,7 +65,7 @@
   			<input type="text" name="" id="text_user_name">
   		</section>
   		<section>
-  			<ul style="display:none;">
+  			<ul>
   				<li class="active">
 	  				<label>1th Character</label>
 	  				<img src="assets/images/char1.PNG">
