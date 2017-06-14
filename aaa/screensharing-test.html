@@ -16,13 +16,13 @@
     // Replace this with the ID for your Chrome screen-sharing extension, which you can
     // get at chrome://extensions/:
 
-    var extensionId = 'fpbojgimpcfgaikgpfgjabidflmkbbhe';
+    var extensionId = 'kopdlgjcddailpmdecfokgaedimmffoi';
 
     // If you register your domain with the the Firefox screen-sharing whitelist, instead of using
     // a Firefox screen-sharing extension, set this to the Firefox version number, such as 36, in which
     // your domain was added to the whitelist:
 
-    var ffWhitelistVersion = '36';
+    var ffWhitelistVersion; // = '36';
 
     var session = OT.initSession(apiKey, sessionId);
 
@@ -57,7 +57,7 @@
 
     function screenshare() {
       OT.checkScreenSharingCapability(function(response) {
-        console.log(response);
+        console.info(response);
         if (!response.supported || response.extensionRegistered === false) {
           alert('This browser does not support screen sharing.');
         } else if (response.extensionInstalled === false

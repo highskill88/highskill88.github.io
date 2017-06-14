@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Kastio</title>
+
+	<link rel="stylesheet" type="text/css" href="/meetvr_assets/css/app.css">
+</head>
+<body>
+ <!-- All your stuff -->
+
+	<script type="text/javascript">
+		// <%= %> will be replaced by values from server side.
+		// You can use this init object inside your JS app for initialization
+		window.initMeet = {
+			// roomName: <%= roomname %>,
+			// name: <%= avatar_name %>,
+			// characterIndex: <%= characterIndex %>,
+			// opentok: {
+			// 	apiKey: <%= tokbox_apikey %>,
+			// 	secreateKey: <%= tokbox_seckey %>,
+			// 	tokenID: <%= tokbox_token %>,
+			// },
+			roomName: 'ppp',
+			userName: 'user',
+			characterIndex: 0,
+			opentok: {
+				apiKey: '45874472',
+				secreateKey: 'ad37fad87706a28b0bb68223e7c492cd7c0779e1',
+				sessionID : '1_MX40NTg3NDQ3Mn5-MTQ5NTY2MjY4NTc0MH5NUndON1QxeWNnL1ZVdjU4aXNYMnQ3b01-fg',
+				tokenID: 'T1==cGFydG5lcl9pZD00NTg3NDQ3MiZzaWc9MmFhYzgxZGY3ZjYxODU1OGQxZTU1ZWEzMmUzZDA2NTNlNjJiM2NhODpzZXNzaW9uX2lkPTFfTVg0ME5UZzNORFEzTW41LU1UUTVOVFkyTWpZNE5UYzBNSDVOVW5kT04xUXhlV05uTDFaVmRqVTRhWE5ZTW5RM2IwMS1mZyZjcmVhdGVfdGltZT0xNDk1NjYzMDExJm5vbmNlPTAuNzg2ODg3NzMzMjU4NDA4MyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDk4MjU1MDEy',
+				screenExtensionID: 'fpkmelcdofeiaphpgkieekcjfkhaefhd',
+			},
+		}
+	</script>
+
+	<section id="appContainer" class="main">
+		<div id="loading_bar" style=""></div>
+		<div id="toolbar" style="display:none">
+			<ul>
+				<li id="btn_share"><img src="/meetvr_assets/images/share.png"></li>
+				<li id="btn_chatting"><img src="/meetvr_assets/images/chatting.png"></li>
+				<li id="btn_setting"><img src="/meetvr_assets/images/setting.png"></li>
+				<li>
+					<section id="myVideo">
+						<div id="publisher"></div>
+					</section>
+				</li>
+				<li id="btn_audio"><img src="/meetvr_assets/images/mic.png"></li>
+				<li id="btn_video"><img src="/meetvr_assets/images/camera.png"></li>
+				<li id="btn_screenshare"><img src="/meetvr_assets/images/screen.png"></li>
+				<li id="btn_exit"><img src="/meetvr_assets/images/exit.png"></li>
+			</ul>
+		</div>
+	</section>
+
+	<div id="dlg_setting">
+		<div class="tab_section">
+			<h4>Video</h4>
+			<section>
+				<label>Resolution</label>
+				<select id="select_video_resolution">
+					<option value="1280">1280x720</option>
+					<option value="1280">640x480</option>
+					<option value="1280">320x240</option>
+				</select>
+			</section>
+			<section>
+				<label>Frame Rate</label>
+				<select id="select_video_rate">
+					<option value="30">30</option>
+					<option value="15">15</option>
+					<option value="7">7</option>
+					<option value="1">1</option>
+				</select>
+			</section>
+		</div>
+		<div class="tab_section">
+			<h4>Audio</h4>
+			<section>
+				<label>Bitrate</label>
+				<select id="select_audio_rate">
+					<option value="30">12000</option>
+					<option value="30">20000</option>
+					<option value="30">40000</option>
+					<option value="30">64000</option>
+				</select>
+			</section>
+			<section>
+				<label>Disable Audio Processing</label>
+				<input type="checkbox" id="check_audio_processing">
+			</section>
+		</div>
+		<div class="height_50">
+			<button id="btn_OK">OK</button>
+		</div>
+	</div>
+
+	<div id="dlg_share_link">
+		<section>
+			<p>Meeting Share link</p>
+			<input type="text" name="" id="text_room_link" readonly>
+		</section>
+	</div>
+
+	<script src="//static.opentok.com/v2/js/opentok.min.js"></script>
+	<script src="/meetvr_assets/js/rStats.js"></script>
+	<script src="/meetvr_assets/js/rStats.extras.js"></script>
+	<script src="/meetvr_assets/js/dat.gui.min.js"></script>
+	<script src="/meetvr_assets/js/app.js"></script>
+</body>
+</html>
