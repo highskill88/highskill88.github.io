@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Kastio</title>
 
-	<link rel="stylesheet" type="text/css" href="./assets/css/app.css">
+	<link rel="stylesheet" type="text/css" href="/meetvr_assets/css/app.css">
 </head>
 <body>
  <!-- All your stuff -->
@@ -22,7 +22,7 @@
 			// 	tokenID: <%= tokbox_token %>,
 			// },
 			roomName: 'ppp',
-			name: 'user',
+			userName: 'user',
 			characterIndex: 0,
 			opentok: {
 				apiKey: '45874472',
@@ -38,54 +38,21 @@
 		<div id="loading_bar" style=""></div>
 		<div id="toolbar" style="display:none">
 			<ul>
-				<li id="btn_share"><img src="assets/images/share.png"></li>
-				<li id="btn_chatting"><img src="assets/images/chatting.png"></li>
-				<li id="btn_setting"><img src="assets/images/setting.png"></li>
+				<li id="btn_share"><img src="/meetvr_assets/images/share.png"></li>
+				<li id="btn_chatting"><img src="/meetvr_assets/images/chatting.png"></li>
+				<li id="btn_setting"><img src="/meetvr_assets/images/setting.png"></li>
 				<li>
 					<section id="myVideo">
 						<div id="publisher"></div>
 					</section>
 				</li>
-				<li id="btn_audio"><img src="assets/images/mic.png"></li>
-				<li id="btn_video"><img src="assets/images/camera.png"></li>
-				<li id="btn_screenshare"><img src="assets/images/screen.png"></li>
-				<li id="btn_exit"><img src="assets/images/exit.png"></li>
+				<li id="btn_audio"><img src="/meetvr_assets/images/mic.png"></li>
+				<li id="btn_video"><img src="/meetvr_assets/images/camera.png"></li>
+				<li id="btn_screenshare"><img src="/meetvr_assets/images/screen.png"></li>
+				<li id="btn_exit"><img src="/meetvr_assets/images/exit.png"></li>
 			</ul>
 		</div>
 	</section>
-
-  	<!-- <button id="btn_test" style="position:absolute;top:10px">Test</button> -->
-	<div id="dlg_login">
-  		<section id="room" style="display:none";>
-  			<label>Room Name</label>
-  			<input type="text" name="" id="text_room_name">
-  		</section>
-  		<section>
-  			<label>User Name</label>
-  			<input type="text" name="" id="text_user_name">
-  		</section>
-  		<section>
-  			<ul>
-  				<li class="active">
-	  				<label>1th Character</label>
-	  				<img src="assets/images/char1.PNG">
-  				</li>
-  				<li>
-	  				<label>2th Character</label>
-	  				<img src="assets/images/char2.PNG">
-  				</li>
-  				<li>
-	  				<label>3th Character</label>
-	  				<img src="assets/images/char3.PNG">
-  				</li>
-  				<li>
-	  				<label>4th Character</label>
-	  				<img src="assets/images/char4.PNG">
-  				</li>
-  			</ul>
-  			<button id="btn_join">Join</button>
-  		</section>
-	</div>
 
 	<div id="dlg_setting">
 		<div class="tab_section">
@@ -137,9 +104,9 @@
 	</div>
 
 	<script src="//static.opentok.com/v2/js/opentok.min.js"></script>
-	<script src="./assets/js/rStats.js"></script>
-	<script src="./assets/js/rStats.extras.js"></script>
-	<script src="./assets/js/dat.gui.min.js"></script>
-	<script src="./assets/js/app.js"></script>
+	<script src="/meetvr_assets/js/rStats.js"></script>
+	<script src="/meetvr_assets/js/rStats.extras.js"></script>
+	<script src="/meetvr_assets/js/dat.gui.min.js"></script>
+	<script src="/meetvr_assets/js/app.js"></script>
 </body>
 </html>
