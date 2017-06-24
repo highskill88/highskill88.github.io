@@ -116,6 +116,7 @@ THREE.DeviceOrientationControls = function( object ) {
 
 	this.getLocation = function() {
 		if (navigator.geolocation) {
+			var option = {maximumAge:600000, timeout:5000, enableHighAccuracy: true};
 			navigator.geolocation.watchPosition(function(position) {
 				if(position) {
 					$('#test_device #device_alpha').text('watchPosition : ' + position.coords.latitude + ',' + position.coords.longitude)
@@ -149,7 +150,7 @@ THREE.DeviceOrientationControls = function( object ) {
 			    }
 				$('#test_device #device_gamma').text('error : ' + strError)
 			    // alert(strError);
-			});
+			}, option);
 		} else { 
 			// alert("Geolocation is not supported by this browser.");
 		}
