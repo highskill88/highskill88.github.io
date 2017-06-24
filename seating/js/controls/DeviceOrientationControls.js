@@ -118,6 +118,7 @@ THREE.DeviceOrientationControls = function( object ) {
 		if (navigator.geolocation) {
 			navigator.geolocation.watchPosition(function(position) {
 				if(position) {
+					alert('aaa');
 					var curPos = new THREE.Vector3(position.coords.latitude, position.coords.longitude, 0);
 
 					var vector = new THREE.Vector3( 0, 0, -10 );
@@ -125,6 +126,7 @@ THREE.DeviceOrientationControls = function( object ) {
 					scope.object.position.add(vector);
 
 					if(lastPosition.distanceToSquared(curPos) > EPS) {
+						alert('bbb');
 						lastPosition.copy(curPos);
 						return curPos;
 					}
