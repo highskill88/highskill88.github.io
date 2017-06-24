@@ -89,7 +89,7 @@ THREE.DeviceOrientationControls = function( object ) {
 		if ( scope.enabled === false ) return;
 
 		var delta = this.clock.getDelta();
-		if(this.elaspetime > 0.5) {
+		if(this.elaspetime > 1.0) {
 			this.elaspetime = 0;
 			this.getLocation();
 			// if(curPos) {
