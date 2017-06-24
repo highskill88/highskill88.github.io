@@ -91,12 +91,12 @@ THREE.DeviceOrientationControls = function( object ) {
 		var delta = this.clock.getDelta();
 		if(this.elaspetime > 0.5) {
 			this.elaspetime = 0;
-			var curPos = this.getLocation();
-			if(curPos) {
-				var vector = new THREE.Vector3( 0, 0, -1 );
-				vector.applyQuaternion( scope.object.quaternion );
-				scope.object.position.addVector(vector);
-			}
+			this.getLocation();
+			// if(curPos) {
+			// 	var vector = new THREE.Vector3( 0, 0, -1 );
+			// 	vector.applyQuaternion( scope.object.quaternion );
+			// 	scope.object.position.addVector(vector);
+			// }
 		}
 		this.elaspetime += delta;
 
@@ -119,9 +119,14 @@ THREE.DeviceOrientationControls = function( object ) {
 			navigator.geolocation.watchPosition(function(position) {
 				if(position) {
 					var curPos = new THREE.Vector3(position.coords.latitude, position.coords.longitude, 0);
+
+					var vector = new THREE.Vector3( 0, 0, -10 );
+					vector.applyQuaternion( scope.object.quaternion );
+					scope.object.position.add(vector);
+
 					if(lastPosition.distanceToSquared(curPos) > EPS) {
 						lastPosition.copy(curPos);
-						return position;
+						return curPos;
 					}
 				}
 			}, function(error) {
