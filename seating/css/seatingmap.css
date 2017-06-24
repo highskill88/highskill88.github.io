@@ -299,7 +299,7 @@ body
 
 #test_device {
 	position: absolute;
-	width: 150px;
+	width: 250px;
 	right: 20px !important;
 	bottom: 0px;
 	background-color: black;
