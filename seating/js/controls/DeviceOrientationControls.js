@@ -118,7 +118,7 @@ THREE.DeviceOrientationControls = function( object ) {
 		if (navigator.geolocation) {
 			navigator.geolocation.watchPosition(function(position) {
 				if(position) {
-					alert('aaa');
+					$('#test_device #device_alpha').text('watchPosition : ' + position.coords.latitude + ',' + position.coords.longitude)
 					var curPos = new THREE.Vector3(position.coords.latitude, position.coords.longitude, 0);
 
 					var vector = new THREE.Vector3( 0, 0, -10 );
@@ -126,7 +126,7 @@ THREE.DeviceOrientationControls = function( object ) {
 					scope.object.position.add(vector);
 
 					if(lastPosition.distanceToSquared(curPos) > EPS) {
-						alert('bbb');
+						$('#test_device #device_beta').text('move : ' + curPos.x + ',' + curPos.y)
 						lastPosition.copy(curPos);
 						return curPos;
 					}
@@ -147,6 +147,7 @@ THREE.DeviceOrientationControls = function( object ) {
 			            strError = "An unknown error occurred."
 			            break;
 			    }
+				$('#test_device #device_gamma').text('error : ' + strError)
 			    // alert(strError);
 			});
 		} else { 
