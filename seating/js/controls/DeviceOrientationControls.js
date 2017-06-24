@@ -117,9 +117,13 @@ THREE.DeviceOrientationControls = function( object ) {
 	this.getLocation = function() {
 		if (navigator.geolocation) {
 			var option = {maximumAge:600000, timeout:5000, enableHighAccuracy: true};
+			var kk = 0;
+			var pp = 0;
+			var ee = 0;
 			navigator.geolocation.watchPosition(function(position) {
 				if(position) {
-					$('#test_device #device_alpha').text('watchPosition : ' + position.coords.latitude + ',' + position.coords.longitude)
+					kk++; 
+					$('#test_device #device_alpha').text('get: ' + kk + '--' + position.coords.latitude + ',' + position.coords.longitude + ',' + position.coords.accuracy);
 					var curPos = new THREE.Vector3(position.coords.latitude, position.coords.longitude, 0);
 
 					var vector = new THREE.Vector3( 0, 0, -10 );
@@ -127,7 +131,8 @@ THREE.DeviceOrientationControls = function( object ) {
 					scope.object.position.add(vector);
 
 					if(lastPosition.distanceToSquared(curPos) > EPS) {
-						$('#test_device #device_beta').text('move : ' + curPos.x + ',' + curPos.y)
+						pp++;
+						$('#test_device #device_beta').text('move: ' + pp + '--' + curPos.x + ',' + curPos.y);
 						lastPosition.copy(curPos);
 						return curPos;
 					}
@@ -148,7 +153,8 @@ THREE.DeviceOrientationControls = function( object ) {
 			            strError = "An unknown error occurred."
 			            break;
 			    }
-				$('#test_device #device_gamma').text('error : ' + strError)
+			    ee++;
+				$('#test_device #device_gamma').text('error: ' + ee + '--' + strError)
 			    // alert(strError);
 			}, option);
 		} else { 
