@@ -1,0 +1,441 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Seating Map</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="css/seatingmap.css" />
+	<link rel="stylesheet" type="text/css" href="css/designer_app.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="css/progressbar-style.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+	<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+
+	<script type="text/javascript" src="js/lib/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.js"></script>
+	<script type="text/javascript" src="js/lib/localforage.min.js"></script>
+	<script type="text/javascript" src="js/lib/localforage.nopromises.min.js"></script>
+	<script type="text/javascript" src="js/lib/jsonpack.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
+	<!--<script type="text/javascript" src="js/lib/fabric-cutomize-seatingmap.js"></script>-->
+	<script type="text/javascript" src="js/lib/fabric.js"></script>
+	<script type="text/javascript" src="js/lib/circle-progress.min.js"></script>
+	<!-- <script type="text/javascript" src="js/main-template-arena.js"></script> -->
+	<script type="text/javascript" src="js/seating_main.js"></script>
+	<script type="text/javascript" src="js/main_ex.js"></script>
+	<script type="text/javascript" src="js/2dmain.js"></script>
+	<script type="text/javascript" src="js/toolbar.js"></script>
+	<script type="text/javascript" src="js/layersdlg.js"></script>
+	<script type="text/javascript" src="js/arenaobj.js"></script>
+	<script type="text/javascript" src="js/objects/blockobj.js"></script>
+	<script type="text/javascript" src="js/objects/shapeobj.js"></script>
+	<script type="text/javascript" src="js/objects/wallobj.js"></script>
+	<script type="text/javascript" src="js/objects/lightobj.js"></script>
+	<script type="text/javascript" src="js/objects/eyeobj.js"></script>
+
+	<script type="text/javascript" src="js/lib/colorpicker.js"></script>
+
+	<script type="text/javascript" src="js/lib/three.js"></script>
+	<script type="text/javascript" src="js/utils/rendering_ex.js"></script>
+	<script type="text/javascript" src="js/utils/volumetricspotlightmaterial.js"></script>
+	<script type="text/javascript" src="js/lib/ShadowMesh.js"></script>
+	<script src="js/shaders/UnpackDepthRGBAShader.js"></script>
+	<script src="js/utils/ShadowMapViewer.js"></script>
+	<!-- <script src="js/lib/Detector.js"></script> -->
+	<!-- <script type="text/javascript" src="js/renderers/Projector.js"></script>
+	<script type="text/javascript" src="js/renderers/CanvasRenderer.js"></script> -->
+	<script type="text/javascript" src="js/lib/threex.videotexture.js"></script>
+	<script type="text/javascript" src="js/lib/FBXLoader.js"></script>
+	<script type="text/javascript" src="js/3d_creator.js"></script>
+	<script type="text/javascript" src="js/3d_main.js"></script>
+	<!-- <script type="text/javascript" src="js/controls/TrackballControls.js"></script> -->
+	<script type="text/javascript" src="js/controls/OrbitControls.js"></script>
+	<script type="text/javascript" src="js/controls/DeviceOrientationControls.js"></script>
+	<!-- <script src="js/controls/PointerLockControls.js"></script> -->
+	<script type="text/javascript" src="js/lib/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>
+	<script type="text/javascript" src="js/3d_main_ex.js"></script>
+	<script type="text/javascript" src="js/lib/Tween.js"></script>
+
+</head>
+
+<body>
+
+	<div id="menu-area">
+		<div id="logo-company">
+			<section>
+				<img src="images/icon.png">
+			</section>
+			<section class="app_title">
+				<span onclick="#">Justin Bieber</span>
+			</section>
+			<section class="app_title right_toolbar">
+				<span onclick="#">Sell tickets</span>
+				<span onclick="#">More</span>
+				<button type="button" class="" data-toggle="modal" data-target="#dlg_login">Login</button>
+			</section>
+		</div>
+		<!-- <ul class="maintoolbar">
+			<li>Sell tickets</li>
+			<li>More</li>
+		</ul> -->
+	</div>
+
+	<div id="main-area">
+		<div id="draw-board">
+			<canvas id="drawcanvas"></canvas>
+		</div>
+
+
+		<!-- Arena Obj -->
+		<form enctype="multipart/form-data" onsubmit="return false;" id="SeatMapArenaUpload" name="SeatMapArenaUpload" action="uploadarena.php" method="post">
+			<input autocomplete="off" class="fileUpload" name="imagelinkvalue" id="imagelinkvalue" type="file">
+		</form>
+		<form enctype="multipart/form-data" onsubmit="return false;" id="SeatMapImageUpload" name="SeatMapImageUpload" action="uploadimage.php" method="post">
+			<input autocomplete="off" class="fileUpload" name="mapping_imgupload" id="mapping_imgupload" type="file">
+		</form>
+		<form enctype="multipart/form-data" onsubmit="return false;" id="SeatMapVideUpload" name="SeatMapVideUpload" action="uploadimage.php" method="post">
+			<input autocomplete="off" class="fileUpload" name="mapping_videoupload" id="mapping_videoupload" type="file">
+		</form>
+	</div>
+	
+	<div id="first_page">
+		<img src="images/background.jpg">
+	</div>
+	<div id="preview" style="position:initial;">
+		<div id="preview_3d">
+		</div>
+		<div id="preview_2d">
+			<div class="pos_left">
+				<!-- <div class="pull_left">
+					<canvas id="canvas_2dpreview"></canvas>
+				</div> -->
+				<div class="toolbar pull_left">
+					<section id="btn_3dcamera_view">
+						<img src="images/3d_preview/camearspot.png" class="off" style="padding: 9px 13px;">
+						<img src="images/3d_preview/camearspot_on.png" class="on" style="padding: 9px 13px;">
+					</section>
+					<section class="zoombar_item">
+						<img src="images/zoom_bar/zoom_in.png" id="slider_inc" class="noselect"/>
+					</section>
+					<section class="zoombar_item">
+						<img src="images/zoom_bar/zoom_out.png" id="slider_dec" class="noselect"/>
+					</section>
+				</div>
+			</div>
+			<div class="pos_left">
+				<div class="ticket_item" id="preview_ticket">
+					<section class="rate">
+						<span>8.9</span>
+					</section>
+					<section>
+						<span class="title">Circle W-Row 7</span><br>
+						<span class="number">7 Tickets</span>
+					</section>
+					<section class="cost">
+						<span>$238</span>
+					</section>
+				</div>
+				<!-- <div class="pos_left">
+					<span>View next best ticket</span>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+		<div id="main_body">
+			<div class="mainview">
+				<div class="header_h4">
+					<h4>Seat Selection</h4>
+				</div>
+				<div class="layout_line" id="second_line">
+					<div class="pos_left w_60">
+						<section>
+							<span>How many Tickets?</span>
+						</section>
+						<section>
+							<ul id="list_ticket">
+								<li>Any</li>
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4+</li>
+							</ul>
+						</section>
+						<div class="clear_both"></div>
+					</div>
+					<div class="pos_left w_40">
+						<section>
+							<span>Price range</span>
+						</section>
+						<section>
+							<div id="slider_price"></div>
+						</section>
+						<div class="clear_both"></div>
+					</div>
+					<div class="clear_both"></div>
+				</div>
+				<div id="third_line">
+					<ul>
+						<li><span>Best deals</span></li>
+						<li><span>Lowest price</span></li>
+						<li><span>Best seats</span></li>
+					</ul>
+					<div class="clear_both"></div>
+				</div>
+				<div class="layout_line" id="fourth_div">
+					<section class="pos_left w_33">
+						<h4>Great deals</h4>
+						<ul>
+							<li class="ticket_item" blockIndex="5" row="1" col="1">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 5: Row 1</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+							<li class="ticket_item" blockIndex="3" row="4" col="2">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 3: Row 4</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+							<li class="ticket_item" blockIndex="6" row="8" col="3">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 6: Row 8</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+						</ul>
+					</section>
+					<section class="pos_left w_33">
+						<h4>Okey deals</h4>
+						<ul>
+							<li class="ticket_item" blockIndex="2" row="2" col="4">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 2: Row 2</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+							<li class="ticket_item" blockIndex="1" row="8" col="5">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 1: Row 8</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+							<li class="ticket_item" blockIndex="8" row="5" col="6">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 8: Row 5</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+							<li class="ticket_item" blockIndex="11" row="2" col="7">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 11: Row 2</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+						</ul>
+					</section>
+					<section class="pos_left w_33">
+						<h4>Bad deals</h4>
+						<ul>
+							<li class="ticket_item" blockIndex="13" row="9" col="8">
+								<section class="rate">
+									<span>8.9</span>
+								</section>
+								<section>
+									<span class="title">block 13: Row 9</span><br>
+									<span class="number">7 Tickets</span>
+								</section>
+								<section class="cost">
+									<span>$238</span>
+								</section>
+								<div class="clear_both"></div>
+							</li>
+						</ul>
+					</section>
+					<div class="clear_both"></div>
+				</div>
+			</div>
+			<div id="foot">
+				<div class="layout_line">
+					<section>
+						<h4>What's Hot</h4>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+					</section>
+					<section>
+						<h4></h4>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+					</section>
+					<section>
+						<h4></h4>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+						<p>Drake Tickets</p>
+					</section>
+					<section>
+						<h4>More</h4>
+						<p>About</p>
+						<p>Help and Support</p>
+						<p>Press</p>
+						<p>Jobs</p>
+					</section>
+					<div class="clear_both"></div>
+				</div>
+				<div id="foot_line">
+					<ul>
+						<li><span>@2016 StageGo Ltd, All rights reserved.</span></li>
+						<li>Privacy policy</li>
+						<li>Terms of use</li>
+						<li>Site map</li>
+						<div class="clear_both"></div>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	<div style="display:none"><canvas id="canvas_temp"></canvas></div>
+
+	<!-- <div id="dlg_save_filename">
+		<input type="text" name="" id="text_save_filename">
+		<button id="btn_saveasfile">OK</button>
+		<button id="btn_save_cancel">Cancel</button>
+	</div> -->
+
+	<div id="dlg_login" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Login</h4>
+				</div>
+				<div class="modal-body">
+					<section class="padding-15">
+						<img src="images/fblogin.jpg" id="btn_fblogin">
+					</section>
+					<section class="container-fluid">
+						<div class="padding-15">
+							<div class="pos_left w_40">
+								<span>Name</span>
+							</div>
+							<div class="pos_left w_60">
+								<input type="text" name="" id="text_login" value="user">
+							</div>
+						</div>
+					</section>
+					<section class="container-fluid">
+						<div class="padding-15">
+							<div class="pos_left w_40">
+								<span>Password</span>
+							</div>
+							<div class="pos_left w_60">
+								<input type="password" name="" id="text_password" value="1234">
+							</div>
+						</div>
+					</section>
+					<section id="select_quality">
+						<p>Grapic Quality</p>
+						<ul>
+							<li>Low</button>
+							<li class="active">Medium</button>
+							<li>High</button>
+						</li>
+					</section>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-cons" data-dismiss="modal">Login</button>
+					<button type="button" class="btn" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div id="test_device">
+		<p id="device_alpha">alpha</p>
+		<p id="device_beta">beta</p>
+		<p id="device_gamma">gamma</p>
+	</div> -->
+	
+	<!-- The Modal -->
+	<div id="progressModal" class="modal">
+		<!--<div id="uploadprogress" class="uploadprogress"></div>-->
+		<div class="progress-bar blue shine stripes"><span id="uploadprogressbar" name="uploadprogressbar" style="width: 10%">Processing...</span></div>
+	</div>
+	<!-- <form enctype="multipart/form-data" class="form-horizontal form-label-left" id="myform" action="index.php" method="post">
+	</form> -->
+	<!-- <iframe id="file_download_iframe" style="display:none;"></iframe> -->
+</body>
+</html>

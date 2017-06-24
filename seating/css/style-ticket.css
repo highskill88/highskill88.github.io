@@ -1,0 +1,72 @@
+#main-area-ticket
+{
+	width: 400px;
+	height: 400px;
+	border: 2px solid black;
+	border-color: #DDDDDD;
+	display: inline-block;
+	position: relative;
+}
+
+#ticket-board{
+	width:100%;
+	height:100%;
+	background:url(../images/grid_ticket_bg.png) repeat;
+	border: 0px solid gray;
+	background-color: #cccccc;
+}
+
+#drawcanvas{
+	width:100%;
+	height:100%;
+}
+
+#footer_zoom_ticket
+{
+	position:absolute;
+	top:20px;
+	left:0px;
+	width : 55px;
+	height: 145px;
+	text-align: center;
+	background: transparent;
+}
+
+#size_slider{ 
+	position : absolute; 
+	margin-left: 15px;	
+}
+
+#slider_inc{
+	position:absolute;
+	left : 5px;
+	top : 5px;
+}
+#slider_dec {
+	position:absolute;
+	left : 5px;
+	top : 120px;
+}
+
+#slider_tmp	{ 
+	position:absolute;
+	left : 0px;
+	top : 27px;
+	width : 4px;
+	height : 88px;
+	background-color:#7db247;
+	margin-left: 12px;
+}
+
+#slider_body	{ width : 2px; height : 80px; float:left; background:#ff0000; margin-top:35px; margin-left: 12px;}
+#slider_body a	{ width : 13px; height: 13px; border:0px none; margin-left:-1px; margin-top:0px; margin-bottom:-2px; background: url(../images/slider_point.png) no-repeat; background-size: 100% 100%; cursor: pointer; border-radius: initial;}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}

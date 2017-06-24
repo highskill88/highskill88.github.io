@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Seating Map</title>
+	<link rel="stylesheet" type="text/css" href="css/progressbar-style.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+	<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+
+	<script type="text/javascript" src="js/lib/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.js"></script>
+	<script type="text/javascript" src="js/lib/localforage.min.js"></script>
+	<script type="text/javascript" src="js/lib/localforage.nopromises.min.js"></script>
+	<script type="text/javascript" src="js/lib/jsonpack.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/3d_preview.js"></script>
+	<script type="text/javascript" src="js/main_ex.js"></script>
+	<script type="text/javascript" src="js/toolbar.js"></script>
+	<script type="text/javascript" src="js/layersdlg.js"></script>
+	<script type="text/javascript" src="js/arenaobj.js"></script>
+	<script type="text/javascript" src="js/objects/blockobj.js"></script>
+	<script type="text/javascript" src="js/objects/shapeobj.js"></script>
+	<script type="text/javascript" src="js/objects/wallobj.js"></script>
+	<script type="text/javascript" src="js/objects/lightobj.js"></script>
+	<script type="text/javascript" src="js/objects/eyeobj.js"></script>
+	<script type="text/javascript" src="js/lib/three.js"></script>
+	<script type="text/javascript" src="js/utils/rendering_ex.js"></script>
+	<script type="text/javascript" src="js/utils/volumetricspotlightmaterial.js"></script>
+	<script type="text/javascript" src="js/lib/threex.videotexture.js"></script>
+	<script type="text/javascript" src="js/3d_creator.js"></script>
+	<script type="text/javascript" src="js/3d_main.js"></script>
+	<script type="text/javascript" src="js/controls/OrbitControls.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>
+	<script type="text/javascript" src="js/3d_main_ex.js"></script>
+	<script type="text/javascript" src="js/lib/Tween.js"></script>
+
+</head>
+
+<body>
+	<div id="preview" style="position:initial;">
+		<div id="preview_3d">
+		</div>
+	</div>
+
+	<!-- The Modal -->
+	<div id="progressModal" class="modal">
+		<!--<div id="uploadprogress" class="uploadprogress"></div>-->
+		<div class="progress-bar blue shine stripes"><span id="uploadprogressbar" name="uploadprogressbar" style="width: 10%">Processing...</span></div>
+	</div>
+</body>
+</html>
