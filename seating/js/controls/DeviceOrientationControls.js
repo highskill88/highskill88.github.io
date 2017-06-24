@@ -145,10 +145,10 @@ THREE.DeviceOrientationControls = function( object ) {
 			            strError = "An unknown error occurred."
 			            break;
 			    }
-			    alert(strError);
+			    // alert(strError);
 			});
 		} else { 
-			alert("Geolocation is not supported by this browser.");
+			// alert("Geolocation is not supported by this browser.");
 		}
 	}
 
