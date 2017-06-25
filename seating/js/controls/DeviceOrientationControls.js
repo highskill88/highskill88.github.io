@@ -91,7 +91,7 @@ THREE.DeviceOrientationControls = function( object ) {
 		var delta = this.clock.getDelta();
 		if(this.elaspetime > 1.0) {
 			this.elaspetime = 0;
-			this.getLocation();
+			// this.getLocation();
 			// if(curPos) {
 			// 	var vector = new THREE.Vector3( 0, 0, -1 );
 			// 	vector.applyQuaternion( scope.object.quaternion );
@@ -114,9 +114,31 @@ THREE.DeviceOrientationControls = function( object ) {
 		}
 	};
 
+
+	this.updateAlphaOffsetAngle = function( angle ) {
+
+		this.alphaOffsetAngle = angle;
+		this.update();
+
+	};
+
+	this.dispose = function() {
+
+		this.disconnect();
+
+	};
+
+	this.getAzimuthalAngle = function() {
+		return 0;
+	}
+
 	this.getLocation = function() {
 		if (navigator.geolocation) {
-			var option = {maximumAge:600000, timeout:5000, enableHighAccuracy: true};
+			var option = {
+				maximumAge:0,
+				timeout:5000,
+				enableHighAccuracy: true
+			};
 			var kk = 0;
 			var pp = 0;
 			var ee = 0;
@@ -126,11 +148,12 @@ THREE.DeviceOrientationControls = function( object ) {
 					$('#test_device #device_alpha').text('get: ' + kk + '--' + position.coords.latitude + ',' + position.coords.longitude + ',' + position.coords.accuracy);
 					var curPos = new THREE.Vector3(position.coords.latitude, position.coords.longitude, 0);
 
-					var vector = new THREE.Vector3( 0, 0, -10 );
-					vector.applyQuaternion( scope.object.quaternion );
-					scope.object.position.add(vector);
 
-					if(lastPosition.distanceToSquared(curPos) > EPS) {
+					if(lastPosition.distanceToSquared(curPos) > EPS * 0.001) {
+						var vector = new THREE.Vector3( 0, 0, -2 );
+						vector.applyQuaternion( scope.object.quaternion );
+						scope.object.position.add(vector);
+
 						pp++;
 						$('#test_device #device_beta').text('move: ' + pp + '--' + curPos.x + ',' + curPos.y);
 						lastPosition.copy(curPos);
@@ -163,23 +186,6 @@ THREE.DeviceOrientationControls = function( object ) {
 	}
 
 
-	this.updateAlphaOffsetAngle = function( angle ) {
-
-		this.alphaOffsetAngle = angle;
-		this.update();
-
-	};
-
-	this.dispose = function() {
-
-		this.disconnect();
-
-	};
-
-	this.getAzimuthalAngle = function() {
-		return 0;
-	}
-
 	this.connect();
-
+	this.getLocation();
 };
