@@ -136,7 +136,7 @@ THREE.DeviceOrientationControls = function( object ) {
 		if (navigator.geolocation) {
 			var option = {
 				maximumAge:0,
-				timeout:5000,
+				timeout:50000,
 				enableHighAccuracy: true
 			};
 			var kk = 0;
